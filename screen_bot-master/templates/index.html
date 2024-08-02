@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/static/style.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Screen Robot</title>
+    <link rel="icon" type="image/x-icon" href="/static/robot_favicon.ico">
+</head>
+<body>
+<!--<div >-->
+<!--    <p id="img_status"></p>-->
+<!--    <p id="function_status"></p>-->
+<!--    <p id="pi_status">Pi Status: </p>-->
+
+    <!--    <button-->
+    <!--            type="button"-->
+    <!--            name="img_match_button"-->
+    <!--            value="Run image match python function"-->
+    <!--            id="img_match_button">-->
+    <!--        Image Match-->
+    <!--    </button>-->
+
+<!--</div>-->
+<div class="header_container">
+    <h1>SMart Tea</h1>
+    <p>Welcome to Smart Tea cafe</p>
+</div>
+
+<div class="item_container">
+    <div class="item_title">
+        <h2>Popular</h2>
+        <p>Try our popular innovative tea</p>
+    </div>
+    <div class="item_1">
+        <h4>Mango Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+    <div class="item_2">
+        <h4>Avocado Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger" onclick="location.href='/addtocart/'"> Add</button>
+    </div>
+    <div class="item_3">
+        <h4>Creme Brulee Milk Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+    <div class="item_4">
+        <h4>Strawberry Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+        <div class="item_3">
+        <h4>Super Fruit Green Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+</div>
+
+<div class="item_container">
+    <div class="item_title">
+        <h2>Cheese Foam Fruit Tea</h2>
+        <p>Try our famous innovative tea</p>
+    </div>
+    <div class="item_1">
+        <h4>Black Grape Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+    <div class="item_2">
+        <h4>Avocado Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger" onclick="location.href='/addtocart/'"> Add</button>
+    </div>
+    <div class="item_3">
+        <h4>Mango Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+    <div class="item_4">
+        <h4>Berry Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+        <div class="item_3">
+        <h4>Red Dargon Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+        <div class="item_2">
+        <h4>Pineapple Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+</div>
+
+
+<div class="item_container">
+    <div class="item_title">
+        <h2>Milk Tea</h2>
+    </div>
+    <div class="item_1">
+        <h4>Bubble Milk Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+    <div class="item_2">
+        <h4>Cheese Milk Black Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+    <div class="item_3">
+        <h4>Red Bean Milk Tea</h4>
+        <p></p>
+        <a> </a>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+    <div class="item_4">
+        <h4>Hawaii Milk Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+        <div class="item_3">
+        <h4>Rose Milk Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger"> Add</button>
+    </div>
+        <div class="item_2">
+        <h4>Orea Milk Tea</h4>
+        <p></p>
+        <button type="button" name="SMart burger" onclick="location.href='/checkout/'"> Add</button>
+    </div>
+</div>
+
+
+</body>
+
+
+<script>
+    $('button#img_match_button').click(function (click) {
+        click.preventDefault();
+        $.get('/run_imgMatch', function (data) {
+                document.getElementById("function_status").innerHTML = data;
+                $('p#img_status').load("static/text")
+            }, "text"
+        );
+    });
+    $('button#connect_check_pi_status').click(function (click) {
+        click.preventDefault();
+        $.get('/pi_status/', function (data) {
+                document.getElementById("pi_status").innerHTML = data;
+            }, "text"
+        );
+    });
+</script>
+
+
+</html>
